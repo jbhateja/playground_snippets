@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "java",
+            "name": "matrix_ops",
+            "request": "launch",
+            "mainClass": "matrix_ops",
+            "projectName": "matrix_75b10a78",
+            "vmArgs": "--add-modules=jdk.incubator.vector"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "vmArgs": "--add-modules=jdk.incubator.vector"
+        }
+    ]
+}
