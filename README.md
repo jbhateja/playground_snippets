@@ -1,4 +1,4 @@
-Playgound snippets
+Playground snippets
   - Vector API
   - Valhalla
   - Languages
