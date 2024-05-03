@@ -8,7 +8,7 @@ public class Records {
        ABC obj2 = new ABC(10, 20);
        
        if (obj1 == obj2) {
-          System.out.println("Proved referencial equality == ");
+          System.out.println("Proved referential equality == ");
        } else if (obj1.equals(obj2)) {
           System.out.println("Proved value equality .equals ");
        } else {

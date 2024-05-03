@@ -18,7 +18,7 @@ public class Values {
        VABC obj2 = new VABC(10, 20);
        if (obj1 == obj2) {
           if (obj1.equals(obj2)) {
-             System.out.println("Proved referencial equality == which is same as .equals ");
+             System.out.println("Proved referential equality == which is same as .equals ");
           }
        } else if (obj1.equals(obj2)) {
           System.out.println("Proved value equality .equals ");
