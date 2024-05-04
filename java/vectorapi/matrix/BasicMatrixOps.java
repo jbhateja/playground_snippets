@@ -17,9 +17,9 @@ class BaseMatrixOps implements MatrixOps {
       FloatMatrix res = new FloatMatrix(src1.getDim1(), src2.getDim2());
       for (int i = 0 ; i < src1.getDim1(); i++) {
         for (int j = 0; j < src2.getDim2(); j++) {
-           int c = 0;
+           float c = 0.0f;
            for (int k = 0; k < src1.getDim2(); k++) {
-               c += src1.get(i, k) * src2.get(k, j);
+               c = Math.fma(src1.get(i, k), src2.get(k, j) , c);
            }
            res.set(i, j, c);
         }

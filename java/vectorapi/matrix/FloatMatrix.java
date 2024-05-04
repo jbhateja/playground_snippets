@@ -56,7 +56,7 @@ public class FloatMatrix {
        }
        for (int i = 0; i < this.mat.length; i++) {
           if (this.mat[i] != mat.mat()[i]) {
-            throw new RuntimeException("Matrix Mismatch at row = " + i / n + " col = " + i % n ); 
+            throw new RuntimeException("Matrix Mismatch at row = " + i / n + " col = " + i % n + " val1 = " + this.mat[i] + " val2 = " + mat.mat()[i]); 
           } 
        }
        return true;
