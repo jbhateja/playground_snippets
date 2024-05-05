@@ -1,6 +1,6 @@
 Playground snippets
   - Vector API
-    - 11x faster matrix multiplication
+    - 12x faster matrix multiplication
     ![image](https://github.com/jbhateja/playground_snippets/assets/20312349/9c5a44b8-fb25-468d-9a28-aec36f4a861d)
 
   - Valhalla
