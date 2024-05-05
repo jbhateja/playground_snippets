@@ -1,7 +1,8 @@
 public class matrix_ops {
     public static void main(String[] args) {
-        int m = 16;
-        int n = 16;
+        int algo = Integer.parseInt(args[0]);
+        int m = 128;
+        int n = 128;
         int ctr = 0;
         MatrixOps ops = new PanamaMatrixOps();
         float [] mat = new float[m * n];
@@ -12,32 +13,38 @@ public class matrix_ops {
         }
         FloatMatrix m1 = new FloatMatrix(mat, m, n);
         FloatMatrix m2 = new FloatMatrix(mat, m, n);
-        FloatMatrix res1 = new FloatMatrix(m, n);
+        FloatMatrix res1 = null;
+        FloatMatrix res2 = null;
 
-        for (int i = 0; i < 70000; i++) {
-           res1 = ops.add(res1, ops.matmul(m1, m2));
+        if (algo == 0 || algo == -1) {
+            res1 = new FloatMatrix(m, n);
+            for (int i = 0; i < 70000; i++) {
+               res1 = ops.add(res1, ops.matmul(m1, m2));
+            }
+            long t1 = System.currentTimeMillis();
+            for (int i = 0; i < 10000; i++) {
+                res1 = ops.add(res1, ops.matmul(m1, m2));
+             }
+            long t2 = System.currentTimeMillis();
+            //System.out.println(res1);
+            System.out.println("[time panama matrix ops] " + (t2-t1) + " ms ");
+       }
+       if (algo == 1 || algo == -1) {
+            res2 = new FloatMatrix(m, n);
+            ops = new BaseMatrixOps();
+            for (int i = 0; i < 70000; i++) {
+                res2 = ops.add(res2, ops.matmul(m1, m2));
+            }
+            long t1 = System.currentTimeMillis();
+            for (int i = 0; i < 10000; i++) {
+                 res2 = ops.add(res2, ops.matmul(m1, m2));
+            }
+            long t2 = System.currentTimeMillis();
+            //System.out.println(res2);
+            System.out.println("[time basic matrix ops] " + (t2-t1) + " ms ");
         }
-        long t1 = System.currentTimeMillis();
-        for (int i = 0; i < 10000; i++) {
-            res1 = ops.add(res1, ops.matmul(m1, m2));
-         }
-        long t2 = System.currentTimeMillis();
-        //System.out.println(res1);
-        System.out.println("[time panama matrix ops] " + (t2-t1) + " ms ");
-
-        FloatMatrix res2 = new FloatMatrix(m, n);
-        ops = new BaseMatrixOps();
-        for (int i = 0; i < 70000; i++) {
-            res2 = ops.add(res2, ops.matmul(m1, m2));
-        }
-        t1 = System.currentTimeMillis();
-        for (int i = 0; i < 10000; i++) {
-             res2 = ops.add(res2, ops.matmul(m1, m2));
-        }
-         t2 = System.currentTimeMillis();
-         //System.out.println(res2);
-         System.out.println("[time basic matrix ops] " + (t2-t1) + " ms ");
-         
-         res1.compare(res2);
+        // Compare the results.
+        if (res1 != null && res2 != null)
+            res1.compare(res2);
     }   
 }

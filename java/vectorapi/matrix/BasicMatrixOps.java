@@ -12,8 +12,7 @@ class BaseMatrixOps implements MatrixOps {
     }
     @Override
     public FloatMatrix matmul(FloatMatrix src1, FloatMatrix src2) {
-      assert src1.getDim2() == src2.getDim1();
-      assert src1.getDim1() == src2.getDim1() && src1.getDim2() == src2.getDim2();
+      assert src1.getDim2() == src2.getDim1() && src2.getDim1() == src1.getDim2();
       FloatMatrix res = new FloatMatrix(src1.getDim1(), src2.getDim2());
       for (int i = 0 ; i < src1.getDim1(); i++) {
         for (int j = 0; j < src2.getDim2(); j++) {

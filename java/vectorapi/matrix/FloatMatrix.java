@@ -30,6 +30,9 @@ public class FloatMatrix {
    public void set(int x, int y, float val) {
       mat[x * n + y] = val;
    }
+   public int length() {
+      return mat.length;
+   }
    
    @Override
    public String toString() {
