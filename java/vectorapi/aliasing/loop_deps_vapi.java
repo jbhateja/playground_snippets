@@ -9,7 +9,7 @@ public class loop_deps_vapi {
          // Vectors backed by array storage imbibes the aliasing property of arrays where
          // all the elements are considered to be aliases.
          // This is different from aliasing behavior of field accesses where alias type
-         // also includes offset, this different field access are of an instance are 
+         // also includes offset, thus different field access are of an instance are 
          // not aliases.
 
          // Memory [..............].
