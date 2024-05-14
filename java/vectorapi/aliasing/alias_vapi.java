@@ -2,7 +2,7 @@
 import jdk.incubator.vector.*;
 import java.util.Arrays;
 
-public class loop_deps_vapi {
+public class alias_vapi {
     public static final VectorSpecies<Float> FSP = FloatVector.SPECIES_512;
 
     public static void micro(float [] res1, float [] res2, float [] src1, float [] src2) {
