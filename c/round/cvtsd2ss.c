@@ -9,7 +9,7 @@ int mxcsr_down = 0x3f80;
 int mxcsr_up = 0x5f80;
 int mxcsr_truncate = 0x7f80;
 
-float rounds(double src, int mode) {
+float cvtsd2ss(double src, int mode) {
    float dst = 0.0f;
    int* mxcsr = NULL;
    switch(mode) {
@@ -34,11 +34,11 @@ int main(int argc, char* argv[]) {
   double src = 3.4028233649732406E38; // 0x1.fffffDP+127  => 127 exp in FP32 exp ranges. => exact src needs 25 bits precision 
                                       // which is greater than 24 bits precision of FP32. Rounding scenario.
                                       // If EXP > 127 then clearly an Inf values.
-  fprintf(stdout, "RC = 00 (nearest), src = %lf ,  dst = %f \n", src, rounds(src, 0)); // Last 4 bits 110 1 (only LSB is extra) 
+  fprintf(stdout, "RC = 00 (nearest), src = %lf ,  dst = %f \n", src, cvtsd2ss(src, 0)); // Last 4 bits 110 1 (only LSB is extra) 
                                                                                        // nextup : 111 0 , nextdown : 101 0
-  fprintf(stdout, "RC = 01 (down),    src = %lf ,  dst = %f \n", src, rounds(src, 1));
-  fprintf(stdout, "RC = 10 (up),      src = %lf ,  dst = %f \n", src, rounds(src, 2));
-  fprintf(stdout, "RC = 11 (truncate) src = %lf ,  dst = %f \n", src, rounds(src, 3));
+  fprintf(stdout, "RC = 01 (down),    src = %lf ,  dst = %f \n", src, cvtsd2ss(src, 1));
+  fprintf(stdout, "RC = 10 (up),      src = %lf ,  dst = %f \n", src, cvtsd2ss(src, 2));
+  fprintf(stdout, "RC = 11 (truncate) src = %lf ,  dst = %f \n", src, cvtsd2ss(src, 3));
   return 0;
 } 
 
