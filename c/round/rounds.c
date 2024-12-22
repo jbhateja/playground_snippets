@@ -45,7 +45,7 @@ float roundss(float src, int mode) {
 int main(int argc, char* argv[]) {
   float dst = 0.0f;
   float src = 0.5f;
-  fprintf(stdout, "RC = 00 (nearest), src = %lf ,  dst = %f \n", src, roundss(src, 0)); // Last 4 bits 110 1 (only LSB is extra)
+  fprintf(stdout, "RC = 00 (nearest), src = %lf ,  dst = %f \n", src, roundss(src, 0)); 
   fprintf(stdout, "RC = 01 (down),    src = %lf ,  dst = %f \n", src, roundss(src, 1));
   fprintf(stdout, "RC = 10 (up),      src = %lf ,  dst = %f \n", src, roundss(src, 2));
   fprintf(stdout, "RC = 11 (truncate) src = %lf ,  dst = %f \n", src, roundss(src, 3));
